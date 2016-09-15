@@ -93,6 +93,12 @@
 				{
 					"type": "git",
 					"branch": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/external/gradle",
+					"dest": "tools/external/gradle"
+				},
+				{
+					"type": "git",
+					"branch": "studio-2.0",
 					"url": "https://android.googlesource.com/platform/tools/adt/idea",
 					"dest": "tools/adt/idea"
 				},
