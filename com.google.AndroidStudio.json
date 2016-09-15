@@ -1,0 +1,173 @@
+{
+	"app-id": "com.google.AndroidStudio",
+	"runtime": "com.endlessm.Platform",
+	"sdk": "com.endlessm.Sdk",
+	"command": "studio.sh",
+	"finish-args": [
+		"--socket=x11",
+		"--share=ipc",
+		"--share=network"
+	],
+	"modules": [
+		{
+			"name": "android-studio",
+			"no-autogen": true,
+			"subdir": "tools/idea",
+			"sources": [
+				/* Both JDK 1.6 and 1.8 are needed for building. Build orchestration needs 1.8,       */
+				/* and actual compilation is done using 1.6, in order for the built bytecode to       */
+				/* have 1.6 as the minimum JRE dependency. The Debian packages are readily available  */
+				/* and binary compatible with our userland, so we can just fetch and unpack them      */
+				/* under a rootfs directory. The Makefile defines the variables needed to point       */
+				/* the build system to the two JDKs.                                                  */
+				{
+					"type": "file",
+					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jre-lib_6b38-1.13.10-1~deb7u1_all.deb",
+					"sha256": "6fe828347a71955650c6a0b082eb36cd9e8b054823570da1fec5cb51bf083791",
+					"dest": "debs"
+				},
+				{
+					"type": "file",
+					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jdk_6b38-1.13.10-1~deb7u1_amd64.deb",
+					"sha256": "c51cdf7c64267c4816bf6230b239e2f3d8f3e6944358e9cf6aa6b1d6d3c4a54e",
+					"dest": "debs"
+				},
+				{
+					"type": "file",
+					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jre-headless_6b38-1.13.10-1~deb7u1_amd64.deb",
+					"sha256": "fdfa1442b906e62a46a82a582e48b0b6b3e67611b569606678107536a2e333ce",
+					"dest": "debs"
+				},
+				{
+					"type": "file",
+					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u102-b14.1-1~bpo8+1_amd64.deb",
+					"sha256": "962b64563cbee9d41f5c481158df2ba079cb92d34c4733c1e27ca1df51e0e8df",
+					"dest": "debs"
+				},
+				{
+					"type": "file",
+					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jre_8u102-b14.1-1~bpo8+1_amd64.deb",
+					"sha256": "3f9e18f5cca53cc0ac9c197ac8c3aadd37fc67f82a5b9303a61cb72294eeacd3",
+					"dest": "debs"
+				},
+				{
+					"type": "file",
+					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jdk-headless_8u102-b14.1-1~bpo8+1_amd64.deb",
+					"sha256": "17c8cdaba1d0d1400c7442dd2cdb89efa8f99438c47fde821707295c119c6dea",
+					"dest": "debs"
+				},
+				{
+					"type": "file",
+					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jdk_8u102-b14.1-1~bpo8+1_amd64.deb",
+					"sha256": "4fcaca57f3fed8da00278d632344fdc6d566ef8c337bb1417d67e5af67446b0d",
+					"dest": "debs"
+				},
+				{
+					"type": "shell",
+					"commands": [
+						"mkdir debroot",
+						"for i in debs/*.deb ; do echo \"=> $i\" ; dpkg-deb -x $i debroot ; done"
+					]
+				},
+
+				{
+					"type": "archive",
+					"url": "http://www.nic.funet.fi/pub/mirrors/apache.org//ant/binaries/apache-ant-1.9.7-bin.tar.bz2",
+					"dest": "apache-ant",
+					"sha256": "be2ff3026cc655dc002bbcce100bd6724d448c63f702aa82b6d9899b22db7808"
+				},
+
+				/* Dependencies which turn IntelliJ IDEA into Android Studio. */
+				{
+					"type": "git",
+					"branch": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/prebuilts/tools",
+					"dest": "prebuilts/tools"
+				},
+				{
+					"type": "git",
+					"branch": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/prebuilts/ndk",
+					"dest": "prebuilts/ndk"
+				},
+				{
+					"type": "git",
+					"revision": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/adt/idea",
+					"dest": "tools/adt/idea"
+				},
+				{
+					"type": "git",
+					"revision": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/base",
+					"dest": "tools/base"
+				},
+				{
+					"type": "git",
+					"revision": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/studio/google/cloud/tools",
+					"dest": "tools/studio/google/cloud/tools"
+				},
+				{
+					"type": "git",
+					"revision": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/studio/google/cloud/testing",
+					"dest": "tools/studio/google/cloud/testing"
+				},
+				{
+					"type": "git",
+					"revision": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/studio/google/services",
+					"dest": "tools/studio/google/services"
+				},
+				{
+					"type": "git",
+					"revision": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/studio/google/play",
+					"dest": "tools/studio/google/play"
+				},
+				{
+					"type": "git",
+					"revision": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/studio/google/appindexing",
+					"dest": "tools/studio/google/appindexing"
+				},
+				{
+					"type": "git",
+					"revision": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/studio/google/login",
+					"dest": "tools/studio/google/login"
+				},
+
+				/* Android Studio^W^W IntelliJ IDEA itself. */
+				{
+					"type": "git",
+					"branch": "studio-2.0",
+					"url": "https://android.googlesource.com/platform/tools/idea",
+					"dest": "tools/idea"
+				},
+
+				{
+					"type": "file",
+					"path": "Makefile",
+					"dest": "tools/idea"
+				},
+				{
+					"type": "patch",
+					"dest": "tools/idea",
+					"path": "remove-privative-components.patch"
+				},
+				{
+					"type": "patch",
+					"dest": "tools/idea",
+					"path": "dont-copy-mac-files.patch"
+				},
+				{
+					"type": "patch",
+					"dest": "tools/idea",
+					"path": "build-only-linux.patch"
+				}
+			]
+		}
+	]
+}
