@@ -92,49 +92,49 @@
 				},
 				{
 					"type": "git",
-					"revision": "studio-2.0",
+					"branch": "studio-2.0",
 					"url": "https://android.googlesource.com/platform/tools/adt/idea",
 					"dest": "tools/adt/idea"
 				},
 				{
 					"type": "git",
-					"revision": "studio-2.0",
+					"branch": "studio-2.0",
 					"url": "https://android.googlesource.com/platform/tools/base",
 					"dest": "tools/base"
 				},
 				{
 					"type": "git",
-					"revision": "studio-2.0",
+					"branch": "studio-2.0",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/cloud/tools",
 					"dest": "tools/studio/google/cloud/tools"
 				},
 				{
 					"type": "git",
-					"revision": "studio-2.0",
+					"branch": "studio-2.0",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/cloud/testing",
 					"dest": "tools/studio/google/cloud/testing"
 				},
 				{
 					"type": "git",
-					"revision": "studio-2.0",
+					"branch": "studio-2.0",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/services",
 					"dest": "tools/studio/google/services"
 				},
 				{
 					"type": "git",
-					"revision": "studio-2.0",
+					"branch": "studio-2.0",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/play",
 					"dest": "tools/studio/google/play"
 				},
 				{
 					"type": "git",
-					"revision": "studio-2.0",
+					"branch": "studio-2.0",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/appindexing",
 					"dest": "tools/studio/google/appindexing"
 				},
 				{
 					"type": "git",
-					"revision": "studio-2.0",
+					"branch": "studio-2.0",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/login",
 					"dest": "tools/studio/google/login"
 				},
