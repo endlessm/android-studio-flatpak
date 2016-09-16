@@ -17,6 +17,7 @@ all:
 		build
 
 install:
-	@echo TODO
+	mkdir -p /app
+	tar --strip-components=1 -xzf '$(OUTDIR)/artifacts/android-studio-$(VERSION).tar.gz' -C /app
 
 .PHONY: install
