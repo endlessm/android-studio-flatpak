@@ -8,6 +8,24 @@
 		"--share=ipc",
 		"--share=network"
 	],
+	"cleanup": [
+		"readme.txt",
+		"README",
+		"NOTICE",
+		"INSTALL",
+		"LICENSE",
+		"WHATSNEW",
+		"changelog.txt",
+		"ChangeLog",
+		"*.bat",
+		"/*.txt",
+		"/lib/ant/KEYS",
+		"/lib/ant/docs.zip",
+		"/lib/libpty/macosx",
+		"/lib/libpty/win",
+		"/license",
+		"/plugins/*/lib/licenses"
+	],
 	"modules": [
 		{
 			"name": "android-studio",
