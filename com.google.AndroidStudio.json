@@ -26,6 +26,8 @@
 		"/license",
 		"/plugins/*/lib/licenses"
 	],
+	"rename-icon": "/bin/studio.png",
+	"copy-icon": true,
 	"modules": [
 		{
 			"name": "android-studio",
@@ -171,6 +173,10 @@
 					"dest": "tools/idea"
 				},
 
+				{
+					"type": "file",
+					"path": "com.google.AndroidStudio.desktop"
+				},
 				{
 					"type": "file",
 					"path": "Makefile",
