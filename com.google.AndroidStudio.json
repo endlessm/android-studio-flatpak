@@ -175,7 +175,8 @@
 
 				{
 					"type": "file",
-					"path": "com.google.AndroidStudio.desktop"
+					"path": "com.google.AndroidStudio.desktop",
+					"dest": "tools/idea"
 				},
 				{
 					"type": "file",
