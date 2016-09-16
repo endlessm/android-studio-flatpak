@@ -17,8 +17,9 @@ all:
 		build
 
 install:
-	mkdir -p /app/share/applications
+	mkdir -p /app/share/applications /app/share/icons
 	tar --strip-components=1 -xzf '$(OUTDIR)/artifacts/android-studio-$(VERSION).tar.gz' -C /app
 	cp com.google.AndroidStudio.desktop /app/share/applications/
+	ln /app/bin/studio.png /app/share/icons/com.google.AndroidStudio.png
 
 .PHONY: install

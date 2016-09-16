@@ -26,8 +26,6 @@
 		"/license",
 		"/plugins/*/lib/licenses"
 	],
-	"rename-icon": "/bin/studio.png",
-	"copy-icon": true,
 	"modules": [
 		{
 			"name": "android-studio",
