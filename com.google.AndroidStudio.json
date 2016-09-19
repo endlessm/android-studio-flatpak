@@ -6,7 +6,9 @@
 	"finish-args": [
 		"--socket=x11",
 		"--share=ipc",
-		"--share=network"
+		"--share=network",
+		"--device=all",
+		"--filesystem=home"
 	],
 	"cleanup": [
 		"readme.txt",
