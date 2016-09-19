@@ -10,7 +10,8 @@ VERSION := $(shell git describe --match 'studio-*' | sed 's/^studio-\([0-9\.]\+\
 all:
 	PATH="$(JAVA_HOME)/bin:$${PATH}" \
 	'$(CURDIR)/../../apache-ant/bin/ant' \
-		-Denable.ui.tests=0 \
+		-Dstudio.ui.tests='' \
+		-Denable.ui.tests='' \
 		-Djdk.bundled.linux=false \
 		-Dout='$(OUTDIR)' \
 		-Dbuild='$(VERSION)' \
