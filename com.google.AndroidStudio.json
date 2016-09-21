@@ -44,49 +44,90 @@
 					"type": "file",
 					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jre-lib_6b38-1.13.10-1~deb7u1_all.deb",
 					"sha256": "6fe828347a71955650c6a0b082eb36cd9e8b054823570da1fec5cb51bf083791",
-					"dest": "debs"
+					"dest": "build-debs"
 				},
 				{
 					"type": "file",
 					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jdk_6b38-1.13.10-1~deb7u1_amd64.deb",
 					"sha256": "c51cdf7c64267c4816bf6230b239e2f3d8f3e6944358e9cf6aa6b1d6d3c4a54e",
-					"dest": "debs"
+					"dest": "build-debs"
 				},
 				{
 					"type": "file",
 					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jre-headless_6b38-1.13.10-1~deb7u1_amd64.deb",
 					"sha256": "fdfa1442b906e62a46a82a582e48b0b6b3e67611b569606678107536a2e333ce",
-					"dest": "debs"
+					"dest": "build-debs"
 				},
 				{
 					"type": "file",
 					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u102-b14.1-1~bpo8+1_amd64.deb",
 					"sha256": "962b64563cbee9d41f5c481158df2ba079cb92d34c4733c1e27ca1df51e0e8df",
-					"dest": "debs"
+					"dest": "build-debs"
 				},
 				{
 					"type": "file",
 					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jre_8u102-b14.1-1~bpo8+1_amd64.deb",
 					"sha256": "3f9e18f5cca53cc0ac9c197ac8c3aadd37fc67f82a5b9303a61cb72294eeacd3",
-					"dest": "debs"
+					"dest": "build-debs"
 				},
 				{
 					"type": "file",
 					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jdk-headless_8u102-b14.1-1~bpo8+1_amd64.deb",
 					"sha256": "17c8cdaba1d0d1400c7442dd2cdb89efa8f99438c47fde821707295c119c6dea",
-					"dest": "debs"
+					"dest": "build-debs"
 				},
 				{
 					"type": "file",
 					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jdk_8u102-b14.1-1~bpo8+1_amd64.deb",
 					"sha256": "4fcaca57f3fed8da00278d632344fdc6d566ef8c337bb1417d67e5af67446b0d",
-					"dest": "debs"
+					"dest": "build-debs"
+				},
+				{
+					"type": "file",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/glibc/libc6-i386_2.19-18+deb8u4endless4bem1_amd64.deb",
+					"sha256": "3a6af8b16fba82b84fb6feb7d7abda854a94828c8653d80177763eb146ee2fc1",
+					"dest": "install-debs"
+				},
+				{
+					"type": "file",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/z/zlib/lib32z1_1.2.8.dfsg-2bem1_amd64.deb",
+					"sha256": "029546b88c7653397f2abb93da4f40931e9163f06a8a99e9272068d5061b2a45",
+					"dest": "install-debs"
+				},
+				{
+					"type": "file",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/n/ncurses/lib32tinfo5_5.9+20140913-1bem1_amd64.deb",
+					"sha256": "d01313e3f87dcd1f7d5581e443cb27bb257b60dded5880f9936e87c555b9e1b2",
+					"dest": "install-debs"
+				},
+				{
+					"type": "file",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/n/ncurses/lib32ncurses5_5.9+20140913-1bem1_amd64.deb",
+					"sha256": "7bc1c176a495b0720f5fb05139441667eb7193b9fe0acf60c2aa4a36d68fcfd5",
+					"dest": "install-debs"
+				},
+				{
+					"type": "file",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/gcc-4.9/lib32gcc1-dbg_4.9.2-10ubuntu9endless3bem1_amd64.deb",
+					"sha256": "a0595d0e632138d88f37350b293aab1f8c03ab4d1480beedc060099f669c28c4",
+					"dest": "install-debs"
+				},
+				{
+					"type": "file",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/gcc-4.9/lib32stdc++6_4.9.2-10ubuntu9endless3bem1_amd64.deb",
+					"sha256": "b9220a9d0fc2ae73003ac8cf342b7e30daa48d8531368a934480730c0d732ebf",
+					"dest": "install-debs"
 				},
 				{
 					"type": "shell",
 					"commands": [
-						"mkdir debroot",
-						"for i in debs/*.deb ; do echo \"=> $i\" ; dpkg-deb -x $i debroot ; done"
+						"mkdir -p debroot install-debroot/usr/lib32",
+						"ln -s usr/lib32 install-debroot/lib32",
+						"for i in build-debs/*.deb ; do echo \"=> $i\" ; dpkg-deb -x $i debroot ; done",
+						"for i in install-debs/*.deb ; do echo \"=> $i\" ; dpkg-deb -x $i install-debroot ; done",
+						"mv install-debroot/usr /app",
+						"mv install-debroot/lib /app",
+						"mv install-debroot/lib32 /app"
 					]
 				},
 
