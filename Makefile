@@ -1,5 +1,5 @@
 export JDK_16_x64 = $(CURDIR)/../../debroot/usr/lib/jvm/java-6-openjdk-amd64/
-export JDK_18_x64 = $(CURDIR)/../../debroot/usr/lib/jvm/java-8-openjdk-amd64/
+export JDK_18_x64 = /usr/lib/jvm/java-8-openjdk-amd64/
 export JAVA_HOME  = $(JDK_18_x64)
 
 OUTDIR  := $(CURDIR)/out
@@ -12,13 +12,12 @@ all:
 	'$(CURDIR)/../../apache-ant/bin/ant' \
 		-Dstudio.ui.tests='' \
 		-Denable.ui.tests='' \
-		-Djdk.bundled.linux=false \
 		-Dout='$(OUTDIR)' \
 		-Dbuild='$(VERSION)' \
 		build
 
 install:
-	tar --strip-components=1 -xzf '$(OUTDIR)/artifacts/android-studio-$(VERSION).tar.gz' -C /app
+	tar --strip-components=1 -xzf '$(OUTDIR)/artifacts/android-studio-$(VERSION)-no-jdk.tar.gz' -C /app
 	mkdir -p /app/share/applications
 	cp com.google.AndroidStudio.desktop /app/share/applications/
 	mkdir -p /app/share/icons/hicolor/128x128/apps/
