@@ -38,12 +38,6 @@
 			"no-autogen": true,
 			"subdir": "tools/idea",
 			"sources": [
-				/* Both JDK 1.6 and 1.8 are needed for building. Build orchestration needs 1.8,       */
-				/* and actual compilation is done using 1.6, in order for the built bytecode to       */
-				/* have 1.6 as the minimum JRE dependency. The Debian packages are readily available  */
-				/* and binary compatible with our userland, so we can just fetch and unpack them      */
-				/* under a rootfs directory. The Makefile defines the variables needed to point       */
-				/* the build system to the two JDKs.                                                  */
 				{
 					"type": "file",
 					"url": "http://ftp.us.debian.org/debian/pool/main/o/openjdk-6/openjdk-6-jre-lib_6b38-1.13.10-1~deb7u1_all.deb",
@@ -116,8 +110,6 @@
 					"dest": "apache-ant",
 					"sha256": "be2ff3026cc655dc002bbcce100bd6724d448c63f702aa82b6d9899b22db7808"
 				},
-
-				/* Dependencies which turn IntelliJ IDEA into Android Studio. */
 				{
 					"type": "git",
 					"branch": "studio-2.2",
@@ -232,15 +224,12 @@
 					"url": "https://android.googlesource.com/platform/tools/analytics-library",
 					"dest": "tools/analytics-library"
 				},
-
-				/* Android Studio^W^W IntelliJ IDEA itself. */
 				{
 					"type": "git",
 					"branch": "studio-2.2",
 					"url": "https://android.googlesource.com/platform/tools/idea",
 					"dest": "tools/idea"
 				},
-
 				{
 					"type": "file",
 					"path": "com.google.AndroidStudio.desktop",
