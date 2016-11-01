@@ -100,7 +100,7 @@
 						"for i in jdk6-debs/*.deb ; do echo $i ; dpkg-deb -x $i debroot ; done",
 						"for i in lib32-debs/*.deb ; do echo $i ; dpkg-deb -x $i lib32root ; done",
 						"echo '== Copying 32-bit libraries =='",
-						"mv -v lib32root/lib32/* lib32root/usr/lib32/* /app/lib"
+						"mv lib32root/lib32/* lib32root/usr/lib32/* /app/lib"
 					]
 				},
 
