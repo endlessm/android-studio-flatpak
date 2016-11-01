@@ -82,14 +82,14 @@
 				},
 				{
 					"type": "file",
-					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/gcc-4.9/lib32gcc1_4.9.2-10ubuntu9endless3bem1_amd64.deb",
-					"sha256": "f43b4b0d068e61c2e62ad3b3e2677c10b9f443cba79ef41ea47c37cdae139639",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/gcc-4.9/lib32gcc1_4.9.2-10ubuntu9endless4bem1_amd64.deb",
+					"sha256": "dd0bc7e3fd5d5b337368708d2f5d4a89f061f5263637782805ea95a05ab2a978",
 					"dest": "lib32-debs"
 				},
 				{
 					"type": "file",
-					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/gcc-4.9/lib32stdc++6_4.9.2-10ubuntu9endless3bem1_amd64.deb",
-					"sha256": "363c36ca22e18bdf51963635b6da57774cc0fb4581ae2ed333e232e50dc3dcd5",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/g/gcc-4.9/lib32stdc++6_4.9.2-10ubuntu9endless4bem1_amd64.deb",
+					"sha256": "dda44632e453739c17b984d501780d52d2614e5123de98e7b5fb0f86d7588bb5",
 					"dest": "lib32-debs"
 				},
 				{
