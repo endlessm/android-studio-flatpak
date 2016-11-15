@@ -237,9 +237,15 @@
 				},
 				{
 					"type": "file",
+					"path": "com.google.AndroidStudio.appdata.xml",
+					"dest": "tools/idea"
+				},
+				{
+					"type": "file",
 					"path": "Makefile",
 					"dest": "tools/idea"
 				}
+
 			]
 		}
 	]
