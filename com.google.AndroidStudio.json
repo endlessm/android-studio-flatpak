@@ -10,6 +10,7 @@
 		"--device=all",
 		"--filesystem=home",
 		"--allow=multiarch",
+		"--talk-name=org.freedesktop.Notifications",
 		"--env=JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64"
 	],
 	"cleanup": [
