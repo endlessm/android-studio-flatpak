@@ -23,5 +23,13 @@ install:
 	cp com.google.AndroidStudio.appdata.xml /app/share/appdata
 	mkdir -p /app/share/icons/hicolor/128x128/apps/
 	ln /app/bin/studio.png /app/share/icons/hicolor/128x128/apps/com.google.AndroidStudio.png
+	install -Dm644 ../adt/idea/adt-branding/src/artwork/icon_AS_small.png \
+		/app/share/icons/hicolor/16x16/apps/com.google.AndroidStudio.png
+	install -Dm644 ../adt/idea/adt-branding/src/artwork/icon_AS_small@2x.png \
+		/app/share/icons/hicolor/16x16@2x/apps/com.google.AndroidStudio.png
+	install -Dm644 ../adt/idea/adt-branding/src/artwork/icon_AS.png \
+		/app/share/icons/hicolor/32x32/apps/com.google.AndroidStudio.png
+	install -Dm644 ../adt/idea/adt-branding/src/artwork/androidstudio.svg \
+		/app/share/icons/hicolor/scalable/apps/com.google.AndroidStudio.svg
 
 .PHONY: install
