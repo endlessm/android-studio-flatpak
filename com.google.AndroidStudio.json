@@ -232,6 +232,11 @@
 					"dest": "tools/idea"
 				},
 				{
+					"type": "patch",
+					"path": "disable-build-non-linux.patch",
+					"dest": "tools/idea"
+				},
+				{
 					"type": "file",
 					"path": "com.google.AndroidStudio.desktop",
 					"dest": "tools/idea"
