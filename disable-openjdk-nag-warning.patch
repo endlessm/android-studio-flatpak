@@ -1,0 +1,17 @@
+diff --git a/platform/platform-impl/src/com/intellij/ide/SystemHealthMonitor.java b/platform/platform-impl/src/com/intellij/ide/SystemHealthMonitor.java
+index 6d7f26c..0ef05dd 100755
+--- a/platform/platform-impl/src/com/intellij/ide/SystemHealthMonitor.java
++++ b/platform/platform-impl/src/com/intellij/ide/SystemHealthMonitor.java
+@@ -117,11 +117,7 @@ public class SystemHealthMonitor extends ApplicationComponent.Adapter {
+       showNotification("unsupported.jre");
+     }
+ 
+-    if (StringUtil.containsIgnoreCase(System.getProperty("java.vm.name", ""), "OpenJDK") &&
+-        !SystemInfo.isJetbrainsJvm && !SystemInfo.isStudioJvm) {
+-      showNotification("unsupported.jvm.openjdk.message");
+-    }
+-    else if (StringUtil.endsWithIgnoreCase(System.getProperty("java.version", ""), "-ea")) {
++    if (StringUtil.endsWithIgnoreCase(System.getProperty("java.version", ""), "-ea")) {
+       showNotification("unsupported.jvm.ea.message");
+     }
+ 
