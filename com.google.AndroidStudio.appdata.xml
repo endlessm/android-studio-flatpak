@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>com.google.AndroidStudio</id>
+	<id>com.google.AndroidStudio.desktop</id>
 	<metadata_license>CC-BY-SA-3.0</metadata_license>
 	<project_license>Apache-2.0, BSD-2-Clause</project_license>
 	<name>Android Studio</name>
