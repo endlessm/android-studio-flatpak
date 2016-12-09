@@ -1,0 +1,43 @@
+diff --git a/build/scripts/dist.gant b/build/scripts/dist.gant
+index efacbc5..947c733 100644
+--- a/build/scripts/dist.gant
++++ b/build/scripts/dist.gant
+@@ -202,38 +202,11 @@ def layoutAll(Map args, String home, String out, Paths _paths = null, buildJps =
+   }
+   patchPropertiesFile(paths.distAll, args + [appendices: ["$home/build/conf/ideaCE.properties"]])
+ 
+-  layoutWin(args, home, paths)
+-  layoutMac(args, home, paths)
+   layoutUnix(args, home, paths)
+ 
+-  def macAppRoot = productProperties.macAppRoot()
+-  def winAppRoot = productProperties.winAppRoot()
+   def linuxAppRoot = productProperties.linuxAppRoot()
+   def archiveName = productProperties.archiveName()
+ 
+-  buildWinZip("$paths.artifacts/${archiveName}-no-jdk.win.zip", [paths.distAll, paths.distWin], winAppRoot)
+-  requireProperty("jdk64.win", "false")
+-  if (p("jdk64.win") != "false") {
+-    buildWinZip("$paths.artifacts/${archiveName}.win.zip", [paths.distAll, paths.distWin, "${paths.sandbox}/jdk64.win"], winAppRoot)
+-  }
+-  requireProperty("jdk32.win", "false")
+-  if (p("jdk32.win") != "false") {
+-    buildWinZip("$paths.artifacts/${archiveName}.win32.zip", [paths.distAll, paths.distWin, "${paths.sandbox}/jdk32.win"], winAppRoot)
+-  }
+-
+-  /*
+-  This is unused by studio, and has issues with the offline sdk repo.
+-  buildCrossPlatformZip("$paths.artifacts/${archiveName}.zip", "${paths.sandbox}/sandbox-ce", [paths.distAll],
+-                        paths.distWin, paths.distUnix, paths.distMac)
+-  */
+-  buildMacZip(macAppRoot, "$paths.artifacts/${archiveName}-no-jdk.mac.zip", [paths.distAll], paths.distMac, productProperties.extraMacBins)
+-  requireProperty("jdk.mac", "false")
+-  if (p("jdk.mac") != "false") {
+-    def jdkPath = "jre/jdk/Contents/Home/"
+-    buildMacZip(macAppRoot, "$paths.artifacts/${archiveName}.mac.zip", [paths.distAll, "${paths.sandbox}/jdk.mac"], paths.distMac,
+-                [jdkPath + "bin/*", jdkPath + "jre/bin/*", jdkPath + "jre/lib/jspawnhelper", jdkPath + "jre/lib/*.dylib.*"] + productProperties.extraMacBins)
+-  }
+-
+   buildTarGz(linuxAppRoot, "$paths.artifacts/${archiveName}-no-jdk.tar", [paths.distAll, paths.distUnix], productProperties.extraLinuxBins)
+   requireProperty("jdk.linux", "false")
+   if (p("jdk.linux") != "false") {
