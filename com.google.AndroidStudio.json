@@ -237,6 +237,11 @@
 					"dest": "tools/idea"
 				},
 				{
+					"type": "patch",
+					"path": "disable-openjdk-nag-warning.patch",
+					"dest": "tools/idea"
+				},
+				{
 					"type": "file",
 					"path": "com.google.AndroidStudio.desktop",
 					"dest": "tools/idea"
