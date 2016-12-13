@@ -31,5 +31,8 @@ install:
 		/app/share/icons/hicolor/32x32/apps/com.google.AndroidStudio.png
 	install -Dm644 ../adt/idea/adt-branding/src/artwork/androidstudio.svg \
 		/app/share/icons/hicolor/scalable/apps/com.google.AndroidStudio.svg
+	echo '-Dide.no.platform.update=true' >> /app/bin/studio64.vmoptions
+	echo '-Dide.no.platform.update=true' >> /app/bin/studio.vmoptions
+
 
 .PHONY: install
