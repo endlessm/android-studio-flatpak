@@ -1,6 +1,7 @@
 {
 	"app-id": "com.google.AndroidStudio",
 	"runtime": "com.endlessm.Sdk",
+	"runtime-version": "@BRANCH",
 	"sdk": "com.endlessm.Sdk",
 	"command": "studio.sh",
 	"finish-args": [
