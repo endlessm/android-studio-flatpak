@@ -3,7 +3,7 @@
 	"runtime": "com.endlessm.Sdk",
 	"runtime-version": "@BRANCH@",
 	"sdk": "com.endlessm.Sdk",
-	"command": "studio.sh",
+	"command": "android.sh",
 	"finish-args": [
 		"--socket=x11",
 		"--share=ipc",
@@ -249,6 +249,16 @@
 				{
 					"type": "file",
 					"path": "com.google.AndroidStudio.appdata.xml",
+					"dest": "tools/idea"
+				},
+				{
+					"type": "file",
+					"path": "jdk.table.xml",
+					"dest": "tools/idea"
+				},
+				{
+					"type": "file",
+					"path": "android.sh",
 					"dest": "tools/idea"
 				},
 				{

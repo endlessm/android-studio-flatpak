@@ -19,8 +19,11 @@ all:
 install:
 	tar --strip-components=1 -xzf '$(OUTDIR)/artifacts/android-studio-$(VERSION)-no-jdk.tar.gz' -C /app
 	mkdir -p /app/share/applications /app/share/appdata
+	mkdir -p /app/AndroidStudioConfig
 	cp com.google.AndroidStudio.desktop /app/share/applications/
 	cp com.google.AndroidStudio.appdata.xml /app/share/appdata
+	cp jdk.table.xml /app/AndroidStudioConfig/jdk.table.xml
+	cp android.sh /app/bin/android.sh
 	mkdir -p /app/share/icons/hicolor/128x128/apps/
 	ln /app/bin/studio.png /app/share/icons/hicolor/128x128/apps/com.google.AndroidStudio.png
 	install -Dm644 ../adt/idea/adt-branding/src/artwork/icon_AS_small.png \
