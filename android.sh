@@ -8,9 +8,9 @@ set -eu
 
 OPTIONS_DIR="$HOME/.AndroidStudio2.2/config/options"
 
-if [[ ! -f ${OPTIONS_DIR}/jdk.table.xml ]]; then
-  mkdir -p ${OPTIONS_DIR}
-  cp /app/AndroidStudioConfig/jdk.table.xml ${OPTIONS_DIR}/jdk.table.xml
+if [[ ! -f "${OPTIONS_DIR}/jdk.table.xml" ]]; then
+  mkdir -p "${OPTIONS_DIR}"
+  cp /app/AndroidStudioConfig/jdk.table.xml "${OPTIONS_DIR}/jdk.table.xml"
 fi
 
-exec /app/bin/studio.sh $@
+exec /app/bin/studio.sh "$@"
