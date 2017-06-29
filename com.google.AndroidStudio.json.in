@@ -104,7 +104,39 @@
 						"for i in jdk6-debs/*.deb ; do echo $i ; dpkg-deb -x $i debroot ; done",
 						"for i in lib32-debs/*.deb ; do echo $i ; dpkg-deb -x $i lib32root ; done",
 						"echo '== Copying 32-bit libraries =='",
-						"mv lib32root/lib32/* lib32root/usr/lib32/* /app/lib"
+						"cp -R --no-preserve=mode,ownership lib32root/lib32/* /app/lib",
+						"cp -R --no-preserve=mode,ownership lib32root/usr/lib32/* /app/lib",
+						"rm -rf lib32root"
+					]
+				},
+				{
+					"type": "file",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/p/pciutils/libpci3_3.2.1-3bem1_amd64.deb",
+					"sha256": "35be3aed364b913c5f0117059357bc2d83c732a9f375daa9b60075cafce38ffa",
+					"dest": "lib64-debs"
+				},
+				{
+					"type": "file",
+					"url": "http://obs-master.endlessm-sf.com:82/shared/eos/pool/core/p/pciutils/pciutils_3.2.1-3bem1_amd64.deb",
+					"sha256": "cfb7b0458de8843bb25fe1a25902c91e576366a9f9cd27e8c3f594b7fb51cd99",
+					"dest": "lib64-debs"
+				},
+				{
+					"type": "file",
+					"url": "http://de.archive.ubuntu.com/ubuntu/pool/universe/m/mesa-demos/mesa-utils_8.1.0-2_amd64.deb",
+					"sha256": "99125c121fade0549abc4d3eff40361f2d48b0f6ebfd93b8840de05a545515a6",
+					"dest": "lib64-debs"
+				},
+				{
+					"type": "shell",
+					"commands": [
+						"echo '== Unpacking and copying Debian packages =='",
+						"mkdir -p deb64 /app/bin",
+						"for i in lib64-debs/*.deb; do echo $i ; dpkg-deb -x $i deb64 ; done",
+						"echo '== Copying 64-bit libraries =='",
+						"cp -R --no-preserve=mode,ownership deb64/lib/x86_64-linux-gnu/* /app/lib",
+						"cp -R --no-preserve=mode,ownership deb64/usr/bin/* /app/bin",
+						"rm -rf deb64"
 					]
 				},
 				{
