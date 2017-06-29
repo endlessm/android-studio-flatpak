@@ -147,121 +147,121 @@
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/prebuilts/studio/layoutlib",
 					"dest": "prebuilts/studio/layoutlib"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/prebuilts/tools",
 					"dest": "prebuilts/tools"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/sdk",
 					"dest": "sdk"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/adt/idea",
 					"dest": "tools/adt/idea"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/base",
 					"dest": "tools/base"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/frameworks/data-binding",
 					"dest": "tools/data-binding"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/external/fat32lib",
 					"dest": "tools/external/fat32lib"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/external/gradle",
 					"dest": "tools/external/gradle"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/gpu",
 					"dest": "tools/gpu/src/android.googlesource.com/platform/tools/gpu"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/gradle",
 					"dest": "tools/gradle"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/frameworks/opt/sherpa",
 					"dest": "tools/sherpa"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/cloud/tools",
 					"dest": "tools/studio/google/cloud/tools"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/cloud/testing",
 					"dest": "tools/studio/google/cloud/testing"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/services",
 					"dest": "tools/studio/google/services"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/play",
 					"dest": "tools/studio/google/play"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/appindexing",
 					"dest": "tools/studio/google/appindexing"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/login",
 					"dest": "tools/studio/google/login"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/studio/google/samples",
 					"dest": "tools/studio/google/samples"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/analytics-library",
 					"dest": "tools/analytics-library"
 				},
 				{
 					"type": "git",
-					"branch": "studio-2.2.2",
+					"branch": "studio-master-dev",
 					"url": "https://android.googlesource.com/platform/tools/idea",
 					"dest": "tools/idea"
 				},
