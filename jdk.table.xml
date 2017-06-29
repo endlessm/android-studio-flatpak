@@ -1,7 +1,7 @@
 <application>
   <component name="ProjectJdkTable">
     <jdk version="2">
-      <name value="Android API 24 Platform" />
+      <name value="Android API 26 Platform" />
       <type value="Android SDK" />
       <homePath value="$USER_HOME$/Android/Sdk" />
       <roots>
@@ -12,8 +12,8 @@
         </annotationsPath>
         <classPath>
           <root type="composite">
-            <root type="simple" url="jar://$USER_HOME$/Android/Sdk/platforms/android-24/android.jar!/" />
-            <root type="simple" url="file://$USER_HOME$/Android/Sdk/platforms/android-24/data/res" />
+            <root type="simple" url="jar://$USER_HOME$/Android/Sdk/platforms/android-26/android.jar!/" />
+            <root type="simple" url="file://$USER_HOME$/Android/Sdk/platforms/android-26/data/res" />
           </root>
         </classPath>
         <javadocPath>
@@ -25,7 +25,7 @@
           <root type="composite" />
         </sourcePath>
       </roots>
-      <additional jdk="1.8" sdk="android-24" />
+      <additional jdk="1.8" sdk="android-26" />
     </jdk>
     <jdk version="2">
       <name value="Android API 25 Platform" />
