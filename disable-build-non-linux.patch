@@ -1,8 +1,61 @@
+ build/scripts/dist.gant | 98 +------------------------------------------------
+ 1 file changed, 1 insertion(+), 97 deletions(-)
+
 diff --git a/build/scripts/dist.gant b/build/scripts/dist.gant
-index efacbc5..947c733 100644
+index e35b6c593fe..95fab672dbf 100644
 --- a/build/scripts/dist.gant
 +++ b/build/scripts/dist.gant
-@@ -202,38 +202,11 @@ def layoutAll(Map args, String home, String out, Paths _paths = null, buildJps =
+@@ -33,10 +33,8 @@ setProperty("out", out)
+ 
+ class Paths {
+   final sandbox
+-  final distWin
+   final distAll
+   final distUnix
+-  final distMac
+   final artifacts
+   final artifacts_core
+   final artifacts_jps
+@@ -45,10 +43,8 @@ class Paths {
+ 
+   def Paths(String out) {
+     sandbox = out
+-    distWin = "$sandbox/dist.win.ce"
+     distAll = "$sandbox/dist.all.ce"
+     distUnix = "$sandbox/dist.unix.ce"
+-    distMac = "$sandbox/dist.mac.ce"
+     artifacts = "$sandbox/artifacts"
+     artifacts_core = "$artifacts/core"
+     artifacts_jps = "$artifacts/jps"
+@@ -82,7 +78,7 @@ target(compile: "Compile project") {
+ 
+   loadProject()
+ 
+-  [paths.sandbox, paths.distWin, paths.distAll, paths.distUnix, paths.distMac, paths.artifacts, paths.artifacts_core, paths.artifacts_jps].each {
++  [paths.sandbox, paths.distAll, paths.distUnix, paths.artifacts, paths.artifacts_core, paths.artifacts_jps].each {
+     ant.mkdir(dir: it)
+   }
+ 
+@@ -125,8 +121,6 @@ target('default': 'The default target') {
+              tools_jar: true],
+             home, null, paths, true)
+   String archiveName = productProperties.archiveName()
+-  String macZip = "$paths.artifacts/${archiveName}.mac.zip"
+-  notifyArtifactBuilt(macZip)
+ 
+   if (productProperties.buildUpdater) {
+     // Generate updater.jar from the updater module (patch updater)
+@@ -151,9 +145,6 @@ target('build-dist-jars' : 'Target to build jars from locally compiled classes')
+              main_class_name: productProperties.mainClassName,
+              tools_jar: true],
+              home, null, paths)
+-  String macZipPrefix = productProperties.prefix + productProperties.fullBuildNumber()
+-  String macZip = "$paths.artifacts/${macZipPrefix}.mac.zip"
+-  notifyArtifactBuilt(macZip)
+ }
+ 
+ private void indexSearchableOptions() {
+@@ -202,39 +193,11 @@ def layoutAll(Map args, String home, String out, Paths _paths = null, buildJps =
    }
    patchPropertiesFile(paths.distAll, args + [appendices: ["$home/build/conf/ideaCE.properties"]])
  
@@ -26,7 +79,8 @@ index efacbc5..947c733 100644
 -  }
 -
 -  /*
--  This is unused by studio, and has issues with the offline sdk repo.
+-  This is unused by studio, and has issues with the offline sdk repo (each platform's build tries to put the same files under
+-  plugins/sdk-updates/offline-repo, and 'duplicate: "fail"' is set).
 -  buildCrossPlatformZip("$paths.artifacts/${archiveName}.zip", "${paths.sandbox}/sandbox-ce", [paths.distAll],
 -                        paths.distWin, paths.distUnix, paths.distMac)
 -  */
@@ -41,3 +95,72 @@ index efacbc5..947c733 100644
    buildTarGz(linuxAppRoot, "$paths.artifacts/${archiveName}-no-jdk.tar", [paths.distAll, paths.distUnix], productProperties.extraLinuxBins)
    requireProperty("jdk.linux", "false")
    if (p("jdk.linux") != "false") {
+@@ -244,65 +207,6 @@ def layoutAll(Map args, String home, String out, Paths _paths = null, buildJps =
+   return info
+ }
+ 
+-private layoutWin(Map args, String home, Paths paths) {
+-  String target = paths.distWin
+-
+-  layout(target) {
+-    dir("bin") {
+-      fileset(dir: "$home/bin/win")
+-    }
+-  }
+-
+-  def name = productProperties.prefix
+-  def ico = productProperties.ico
+-
+-  ant.copy(file: ico, tofile: "$target/bin/${name}.ico")
+-
+-  if (productProperties.includeBatchLauncher) {
+-    winScripts(target, home, "${name}.bat", args)
+-  }
+-  winVMOptions(target, args, productProperties.includeYourkitAgentInEAP ? args.system_selector : null, "${name}.exe", "${name}64.exe")
+-  def appInfoModulePath = productProperties.appInfoModulePath
+-
+-  List resourcePaths = ["$home/${appInfoModulePath}/src", "$home/platform/icons/src"]
+-  buildWinLauncher(home, "$home/bin/WinLauncher/WinLauncher.exe", "$target/bin/${name}.exe", appInfoFile(),
+-                   productProperties.exe_launcher_properties, args.system_selector, resourcePaths)
+-  buildWinLauncher(home, "$home/bin/WinLauncher/WinLauncher64.exe", "$target/bin/${name}64.exe", appInfoFile(),
+-                   productProperties.exe64_launcher_properties, args.system_selector, resourcePaths)
+-
+-  productProperties.customWinLayout(target)
+-}
+-
+-private layoutMac(Map _args, String home, Paths paths) {
+-  String target = paths.distMac
+-  def prefix = productProperties.prefix
+-
+-  Map args = new HashMap(_args)
+-  args.bundleIdentifier = productProperties.bundleIdentifier
+-  args.doc_types = """
+-      <dict>
+-        <key>CFBundleTypeExtensions</key>
+-        <array>
+-          <string>ipr</string>
+-        </array>
+-        <key>CFBundleTypeIconFile</key>
+-        <string>${prefix}.icns</string>
+-        <key>CFBundleTypeName</key>
+-        <string>IntelliJ IDEA Project File</string>
+-        <key>CFBundleTypeRole</key>
+-        <string>Editor</string>
+-      </dict>
+-"""
+-  args."idea.properties.path" = "${paths.distAll}/bin/idea.properties"
+-  args."idea.properties" = ["idea.jre.check": true];
+-  args.urlSchemes = ["idea"]
+-  args.mac_no_yjp = true
+-  args.executable = prefix
+-  args.icns = productProperties.icns
+-  layoutMacApp(target, home, args)
+-  productProperties.customMacLayout(target)
+-}
+-
+ private layoutUnix(Map args, String home, Paths paths) {
+   String target = paths.distUnix
+ 
+-- 
+2.11.0
+
