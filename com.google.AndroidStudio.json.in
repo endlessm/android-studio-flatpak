@@ -6,6 +6,8 @@
 	"command": "android.sh",
 	"finish-args": [
 		"--socket=x11",
+		"--socket=pulseaudio",
+		"--socket=system-bus",
 		"--share=ipc",
 		"--share=network",
 		"--device=all",
