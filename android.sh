@@ -6,7 +6,7 @@ set -eu
 # we need to preset the path in the jdk.table.xml
 #
 
-OPTIONS_DIR="$HOME/.AndroidStudio2.2/config/options"
+OPTIONS_DIR="$HOME/.AndroidStudio2.3/config/options"
 
 if [[ ! -f "${OPTIONS_DIR}/jdk.table.xml" ]]; then
   mkdir -p "${OPTIONS_DIR}"
